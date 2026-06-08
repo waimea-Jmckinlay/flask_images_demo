@@ -15,5 +15,5 @@ COPY . .
 # so requests from outside the container can reach it
 ENV FLASK_RUN_HOST=0.0.0.0
 
-CMD ["flask", "run"]
+CMD ["flask", "run", "--debug"]
 
