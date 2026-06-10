@@ -30,15 +30,17 @@ import uuid
 from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = os.path.join('app', 'static', 'uploads')
-
+#-----------------------------------------------------
+# make new creatures
+#-----------------------------------------------------
 @app.post("/creatures/new")
-def add_club():
+def add_creature():
     # Get the normal text fields from the form
     name = request.form.get('name', '').strip()
     name = html.escape(name)
 
     species = request.form.get(' species','').strip()
-    species= html.escape(name)
+    species= html.escape(species)
 
     # Get the file selected via the form
     logo = request.files.get('createures', None)
@@ -73,11 +75,11 @@ def show_welcome():
     return render_template("pages/welcome.jinja")
 
 #-----------------------------------------------------------
-# Welcome page
+# creature page
 #-----------------------------------------------------------
 @app.get("/creature/new")
 def show_creature_form():
-    return redirect("pages/creature_form.jinja")
+    return render_template("pages/creature_form.jinja")
 
 
 #-----------------------------------------------------------
